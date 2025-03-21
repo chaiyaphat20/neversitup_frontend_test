@@ -1,4 +1,11 @@
+import { Metadata } from "next";
 import TodoScreen from "./components/TodoScreen";
+
+
+export const metadata: Metadata = {
+  title: 'My Todo App - Organize Your Tasks',
+  description: 'จัดการ task ของคุณแบบง่ายๆ',
+};
 
 export default async function Home() {
   return (

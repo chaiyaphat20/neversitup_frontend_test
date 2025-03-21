@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
+
 const LoginPage = () => {
   const [username, setUsername] = useState('admin2')
   const [password, setPassword] = useState('admin2')
