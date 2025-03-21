@@ -1,8 +1,8 @@
 import type { AxiosInstance } from "axios";
 import axios from "axios";
 
-const fetchApi: AxiosInstance = axios.create({
+const apiServer: AxiosInstance = axios.create({
   baseURL: "/api"
 });
 
-export default fetchApi;
+export default apiServer;
