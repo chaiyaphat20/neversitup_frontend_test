@@ -7,11 +7,13 @@ import { Pencil, Trash2, RefreshCw, Plus, CheckSquare } from 'lucide-react'
 import { TodoSchema, TodoType } from '@/types/todo/todo.schema'
 import { useForm, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useRouter } from 'next/navigation'
 
 function TodoScreen() {
   const [data, setData] = useState<TodoData[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [editMode, setEditMode] = useState<string | null>(null)
+  const router = useRouter()
 
   const { control, handleSubmit, reset, formState: { errors } } = useForm<TodoType>({
     resolver: zodResolver(TodoSchema),
@@ -97,6 +99,10 @@ function TodoScreen() {
   useEffect(() => {
     fetchAllTodos()
   }, [])
+
+  const gotoTable = () =>{
+    router.push("/table")
+  }
 
   return (
     <div className="bg-gray-100 p-4 min-h-screen">
@@ -269,6 +275,12 @@ function TodoScreen() {
           </button>
         </div>
       
+        <button
+        onClick={gotoTable}
+            className="bg-white px-4 py-2 rounded border text-red-500"
+          >
+            Goto table
+          </button>
       </div>
     </div>
   )
